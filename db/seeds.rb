@@ -12,3 +12,8 @@ Product.create! [
   { title: 'shkaf', info: 'text' },
   { title: 'korobka', info: 'text' },
 ]
+Category.destroy_all
+Category.create! [
+  { name: 'Polka' },
+  { name: 'shkaf' },
+]
