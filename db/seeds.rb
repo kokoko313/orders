@@ -15,17 +15,17 @@ Product.create! [
   { title: 'korobka', info: 'text' }
 ]
 Category.create! [
-  { name: 'Polka' },
-  { name: 'shkaf' }
+  { name: 'Montaj' },
+  { name: 'Remont' }
 ]
 
-products=Product.all
-categories=Category.all
-users=User.all
+products = Product.all
+categories = Category.all
+users = User.all
 
 Order.create! [
-  {status:'new', product_id: products.first, category_id: categories.first, user_id: 1 },
-  {status:'new', product_id: products.second, category_id: categories.second, user_id: '1' },
-  {status:'new', product_id: products.second, category_id: categories.second, user_id: '2' },
-  {status:'new', product_id: products.second, category_id: categories.second, user_id: 2 },
+  {status:'new', product_id: products.first.id, category_id: categories.first.id, user_id: users.first.id },
+  {status:'new', product_id: products.second.id, category_id: categories.second.id, user_id: users.first.id },
+  {status:'new', product_id: products.second.id, category_id: categories.second.id, user_id: users.second.id },
+  {status:'new', product_id: products.second.id, category_id: categories.second.id, user_id: users.second.id },
 ]
