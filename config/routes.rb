@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'client/index'
+
   devise_for :users
   resources :products
   root to: "home#index"
