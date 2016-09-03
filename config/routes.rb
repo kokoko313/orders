@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  resources :orders
   get 'client/index'
 
   devise_for :users
   resources :products
-  root to: "home#index"
+  root to: "client#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,23 @@
+<h1>New Order</h1>
+<%=  form_for(@order) do |f|  %>
+  <div class="field" style="display: none">
+    <%= f.label :status %><br>
+    <%= f.text_field :status,:value => 'new' %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.collection_select(:product_id, Product.all, :id, :title)%>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.collection_select(:category_id, Category.all, :id, :name)%>
+  </div>
+   <div class="field" style="display: none">
+    <%= f.label :user_id %><br>
+    <%= f.text_area :user_id, :value => current_user.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<%end%>
+
