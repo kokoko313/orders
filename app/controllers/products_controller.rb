@@ -1,21 +1,25 @@
 class ProductsController < ApplicationController
   before_filter :authenticate_user!
+  skip_after_action :verify_authorized, except: :index
+  skip_after_action :verify_policy_scoped, only: :index
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = policy_scope(Product.all)
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
     set_product
+    authorize @product
   end
 
   # GET /products/new
   def new
     @product = Product.new
+    # authorize @product
   end
 
   # GET /products/1/edit
@@ -27,7 +31,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
+    authorize @product
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
