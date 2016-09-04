@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'passthrough/index'
+
   get 'admin/index'
 
   resources :orders
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :products
-  root to: "client#index"
+  root :to => 'passthrough#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
