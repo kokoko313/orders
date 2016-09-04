@@ -20,7 +20,7 @@
         <td><%= distance_of_time_in_words_to_now(order.created_at) %></td>
         <td><%= User.find_by_id(order.user_id).email %></td>
         <td><%= order.status %></td>
-        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
       </tr>
     <% end %>
   </tbody>
