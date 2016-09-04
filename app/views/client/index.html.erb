@@ -1,27 +1,28 @@
-
-<h2>My orders (<%=@orders.count%>)</h2>
-<table>
+<% if @orders.count>0 %> 
+<h3>My orders (<%=@orders.count%>)</h3>
+<div class="well">
+<table class='table'>
   <thead>
     <tr>
-      <th>status</th>
       <th>product</th>
       <th>category</th>
       <th>created_at</th>
-      <th>user_id</th>
+      <th>status</th>
     </tr>
   </thead>
 
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.status %></td>
         <td><%= link_to "#{Product.find_by_id(order.product_id).title}", product_path(order.product_id)  %></td>
         <td><%= Category.find_by_id(order.category_id).name %></td>
         <td><%= distance_of_time_in_words_to_now(order.created_at) %></td>
-        <td><%= User.find_by_id(order.user_id).email %></td>
+        <td><%= order.status %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'new order', new_order_path %>
+<%else%>
+<p>Заказов нет</p>
+<%end%>

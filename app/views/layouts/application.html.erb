@@ -31,7 +31,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="/orders/new">New order<span class="sr-only">(current)</span></a></li>
           <li class="active"><a href="/products">Products<span class="sr-only">(current)</span></a></li>
-          <li class="active"><a href="/admin/index">Orders<span class="sr-only">(current)</span></a></li>
+
           
         </ul>
 
@@ -55,8 +55,8 @@
       </div>
      </div>
 </nav>
-  
-   <p class="notice"><%= alert %></p>
+<p class="text-danger"><%= alert %></p>
+<p class="text-success"><%= notice %></p>
 <%= yield %>
 </body>
 </html>

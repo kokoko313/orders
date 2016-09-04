@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @order.status %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status"
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
